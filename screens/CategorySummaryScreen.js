@@ -1,5 +1,10 @@
+import { useEffect, useState } from "react";
 import { View, Text, ScrollView } from "react-native";
-import { transactions } from "../data/mockData";
+
+import {
+  transactions as initialTransactions,
+  subscribeTransactions,
+} from "../data/mockData";
 
 const categoryIcons = {
   Food: "🛒",
@@ -8,6 +13,12 @@ const categoryIcons = {
 };
 
 export default function CategorySummaryScreen() {
+  const [transactions, setTransactions] = useState(initialTransactions);
+
+  useEffect(() => {
+    return subscribeTransactions(setTransactions);
+  }, []);
+
   const expenseTransactions = transactions.filter(
     (transaction) => transaction.type === "expense"
   );
@@ -16,8 +27,13 @@ export default function CategorySummaryScreen() {
 
   const categoryData = categories.map((category) => {
     const amount = expenseTransactions
-      .filter((transaction) => transaction.category === category)
-      .reduce((total, transaction) => total + transaction.amount, 0);
+      .filter(
+        (transaction) => transaction.category === category
+      )
+      .reduce(
+        (total, transaction) => total + transaction.amount,
+        0
+      );
 
     return {
       category,
@@ -70,16 +86,6 @@ export default function CategorySummaryScreen() {
               ? (item.amount / totalExpenses) * 100
               : 0;
 
-          let barWidth = "w-[10%]";
-
-          if (percentage >= 75) {
-            barWidth = "w-3/4";
-          } else if (percentage >= 50) {
-            barWidth = "w-1/2";
-          } else if (percentage >= 25) {
-            barWidth = "w-1/4";
-          }
-
           return (
             <View
               key={item.category}
@@ -109,7 +115,8 @@ export default function CategorySummaryScreen() {
 
               <View className="mt-4 h-2 overflow-hidden rounded-full bg-gray-100">
                 <View
-                  className={`h-full rounded-full bg-blue-600 ${barWidth}`}
+                  className="h-full rounded-full bg-blue-600"
+                  style={{ width: `${percentage}%` }}
                 />
               </View>
             </View>

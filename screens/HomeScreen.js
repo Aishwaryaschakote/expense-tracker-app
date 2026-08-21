@@ -1,9 +1,21 @@
+import { useEffect, useState } from "react";
 import { View, Text, ScrollView, Pressable } from "react-native";
-import { transactions } from "../data/mockData";
+
+import {
+  transactions as initialTransactions,
+  subscribeTransactions,
+} from "../data/mockData";
+
 import SummaryCard from "../components/SummaryCard";
 import TransactionCard from "../components/TransactionCard";
 
 export default function HomeScreen({ navigation }) {
+  const [transactions, setTransactions] = useState(initialTransactions);
+
+  useEffect(() => {
+    return subscribeTransactions(setTransactions);
+  }, []);
+
   const income = transactions
     .filter((item) => item.type === "income")
     .reduce((total, item) => total + item.amount, 0);
@@ -94,19 +106,35 @@ export default function HomeScreen({ navigation }) {
           </Pressable>
         </View>
 
-        {recentTransactions.map((transaction) => (
-          <TransactionCard
-            key={transaction.id}
-            transaction={transaction}
-          />
-        ))}
+        {recentTransactions.length > 0 ? (
+          recentTransactions.map((transaction) => (
+            <TransactionCard
+              key={transaction.id}
+              transaction={transaction}
+            />
+          ))
+        ) : (
+          <View className="items-center rounded-3xl bg-white px-6 py-10">
+            <Text className="text-4xl">🧾</Text>
+
+            <Text className="mt-3 text-lg font-bold text-gray-900">
+              No transactions yet
+            </Text>
+
+            <Text className="mt-2 text-center text-sm text-gray-500">
+              Add your first transaction using the + button.
+            </Text>
+          </View>
+        )}
       </ScrollView>
 
       <Pressable
         onPress={() => navigation.navigate("AddTransaction")}
         className="absolute bottom-5 right-5 h-14 w-14 items-center justify-center rounded-full bg-blue-600 shadow-lg"
       >
-        <Text className="text-3xl font-light text-white">+</Text>
+        <Text className="text-3xl font-light text-white">
+          +
+        </Text>
       </Pressable>
     </View>
   );

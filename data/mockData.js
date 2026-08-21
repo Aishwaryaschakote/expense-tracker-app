@@ -65,6 +65,22 @@ export const transactions = [
   },
 ];
 
+const listeners = new Set();
+
+export const addTransaction = (transaction) => {
+  transactions.unshift(transaction);
+
+  listeners.forEach((listener) => listener([...transactions]));
+};
+
+export const subscribeTransactions = (listener) => {
+  listeners.add(listener);
+
+  return () => {
+    listeners.delete(listener);
+  };
+};
+
 export const categories = [
   "All",
   "Food",

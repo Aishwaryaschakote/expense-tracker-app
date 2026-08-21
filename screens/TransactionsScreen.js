@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, ScrollView, Pressable } from "react-native";
 
-import { transactions } from "../data/mockData";
+import {
+  transactions as initialTransactions,
+  subscribeTransactions,
+} from "../data/mockData";
+
 import TransactionCard from "../components/TransactionCard";
 
 const filters = ["All", "Food", "Travel", "Bills", "Income"];
 
 export default function TransactionsScreen() {
+  const [transactions, setTransactions] = useState(initialTransactions);
   const [selectedFilter, setSelectedFilter] = useState("All");
+
+  useEffect(() => {
+    return subscribeTransactions(setTransactions);
+  }, []);
 
   const filteredTransactions =
     selectedFilter === "All"
@@ -54,7 +63,9 @@ export default function TransactionsScreen() {
               >
                 <Text
                   className={`font-semibold ${
-                    isSelected ? "text-white" : "text-gray-600"
+                    isSelected
+                      ? "text-white"
+                      : "text-gray-600"
                   }`}
                 >
                   {filter}
@@ -85,14 +96,14 @@ export default function TransactionsScreen() {
           ))
         ) : (
           <View className="mt-16 items-center rounded-3xl bg-white px-6 py-10">
-            <Text className="mb-3 text-5xl">🧾</Text>
+            <Text className="text-5xl">🧾</Text>
 
-            <Text className="text-xl font-bold text-gray-900">
+            <Text className="mt-3 text-xl font-bold text-gray-900">
               No transactions found
             </Text>
 
             <Text className="mt-2 text-center text-sm leading-5 text-gray-500">
-              There are no transactions in the {selectedFilter} category yet.
+              There are no transactions in this category yet.
             </Text>
           </View>
         )}
