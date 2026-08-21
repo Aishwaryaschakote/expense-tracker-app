@@ -1,212 +1,90 @@
 # 💰 Expense Tracker App
 
-A mobile Expense Tracker application built using **React Native, Expo, NativeWind, and React Navigation**.
+A mobile Expense Tracker application built with **React Native, Expo, NativeWind, and React Navigation**.
 
-The application provides a clean and production-style interface for tracking income and expenses, viewing transactions, filtering transactions by category, adding new transactions, and understanding spending through category summaries.
-
-This project was developed as part of a **Frontend Internship Assessment**.
-
----
-
-## 📱 Project Overview
-
-The Expense Tracker is a **UI-only mobile application**.
-
-All transaction information is provided through local mock data. The application does not use any backend, API, database, or external data source.
-
-The main focus of the project is:
-
-- Clean mobile UI
-- React Native development
-- NativeWind styling
-- Navigation
-- Component-based structure
-- Transaction filtering
-- Form validation
-- Responsive user experience
-- Spending visualization
+A UI-focused frontend internship assessment demonstrating clean mobile design, navigation, reusable components, local mock data, transaction filtering, form validation, and spending summaries.
 
 ---
 
 ## ✨ Features
 
-- Dashboard with total balance
-- Total income and total expenses
+- Dashboard with balance, income, expenses, and recent transactions
+- Add income or expense transactions
+- Category selection: Food, Travel, and Bills
+- Date picker for transaction dates
+- Transaction filtering by category
+- Category-wise spending summary
+- Spending percentages and progress bars
+- Form validation and error feedback
+- Keyboard-friendly transaction form
+- Bottom tab and stack navigation
+- Responsive mobile UI
+- Local mock data with no backend or API
+
+---
+
+## 📱 Screens
+
+### Home / Dashboard
+
+- Total balance
+- Income and expense summaries
 - Recent transactions
 - Quick-add transaction button
-- Complete transactions list
-- Transaction filtering
-- Food, Travel, Bills, and Income categories
-- Add income or expense
-- Transaction title input
-- Amount input
-- Category selection
-- Date input
+
+### Transactions
+
+- Complete transaction list
+- Filters: All, Food, Travel, Bills, Income
+- Income and expense indicators
+
+### Add Transaction
+
 - Income / Expense selection
-- Input validation
-- Keyboard-friendly transaction form
-- Category spending summary
-- Spending percentage
-- Visual spending progress bars
-- Bottom tab navigation
-- Stack navigation
-- Local mock data
-- Responsive mobile layout
+- Title and amount inputs
+- Category selection
+- Date picker
+- Validation
+- Save and Cancel actions
 
----
-
-# 📱 Screens
-
-## 1. Dashboard / Home
-
-The Home screen provides an overview of the user's finances.
-
-It includes:
-
-- Total Balance
-- Total Income
-- Total Expenses
-- Income summary
-- Expense summary
-- Recent Transactions
-- Quick Add Transaction button
-
-The recent transactions section displays the latest transaction entries.
-
----
-
-## 2. Transactions
-
-The Transactions screen displays the complete list of transactions.
-
-Each transaction contains:
-
-- Transaction title
-- Category
-- Category icon
-- Date
-- Amount
-- Income or expense indication
-
-### Filters
-
-Transactions can be filtered instantly using:
-
-- All
-- Food
-- Travel
-- Bills
-- Income
-
-The selected filter is visually highlighted.
-
----
-
-## 3. Add Transaction
-
-The Add Transaction screen allows the user to enter a new transaction.
-
-The form contains:
-
-- Transaction title
-- Amount
-- Category selector
-- Date
-- Income / Expense selector
-- Save button
-- Cancel button
-
-### Validation
-
-The form validates:
-
-- Empty transaction title
-- Empty amount
-- Invalid amount
-- Zero or negative amount
-- Empty date
-
-The amount field accepts numeric values and prevents letters and negative values.
-
-The screen also uses keyboard-aware layout handling so that the keyboard does not cover form fields.
-
----
-
-## 4. Category Summary
-
-The Category Summary screen provides a visual breakdown of expenses.
-
-It displays:
+### Category Summary
 
 - Total spending
-- Food spending
-- Travel spending
-- Bills spending
-- Percentage of total spending
+- Category-wise spending
+- Spending percentages
 - Visual progress bars
 
-The summary is calculated from the local mock transaction data.
+---
+
+## 🛠️ Tech Stack
+
+| React Native | Expo | NativeWind | React Navigation |
+|---|---|---|---|
+| Mobile UI | Development | Styling | Navigation |
+
+| JavaScript | Tailwind CSS | Local Mock Data | Expo Go |
+|---|---|---|---|
+| Language | Utility Styling | Static Data | Testing |
 
 ---
 
-## 5. Empty and Validation States
-
-The application includes validation feedback on the Add Transaction screen.
-
-When required information is missing or invalid, an inline error message is displayed instead of silently submitting the form.
-
-The transaction list also supports an empty state when there are no transactions to display.
-
----
-
-# 🛠️ Tech Stack
-
-### Frontend
-
-- React Native
-- Expo SDK 54
-- JavaScript
-
-### Styling
-
-- NativeWind
-- Tailwind CSS
-
-### Navigation
-
-- React Navigation
-- Native Stack Navigator
-- Bottom Tab Navigator
-
-### Data
-
-- Local mock JavaScript data
-- No backend
-- No API calls
-- No external database
-
----
-
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 expense-tracker-app/
 │
 ├── assets/
-│
 ├── components/
 │   ├── SummaryCard.js
 │   └── TransactionCard.js
-│
 ├── data/
 │   └── mockData.js
-│
 ├── screens/
 │   ├── HomeScreen.js
 │   ├── TransactionsScreen.js
 │   ├── AddTransactionScreen.js
 │   └── CategorySummaryScreen.js
-│
+├── screenshots/
 ├── App.js
 ├── index.js
 ├── app.json
@@ -215,8 +93,6 @@ expense-tracker-app/
 ├── tailwind.config.js
 ├── global.css
 ├── package.json
-├── package-lock.json
-├── .gitignore
 └── README.md
 ```
 
@@ -238,21 +114,11 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/Aishwaryaschakote/expense-tracker-app.git
-```
-
-Navigate to the project folder:
-
-```bash
 cd expense-tracker-app
-```
-
-Install dependencies:
-
-```bash
 npm install
 ```
 
-## ▶️ Run the Application
+## Run the Application
 
 Start the Expo development server:
 
@@ -260,248 +126,79 @@ Start the Expo development server:
 npx expo start
 ```
 
-Scan the QR code using Expo Go on your Android device.
+Scan the QR code using **Expo Go** on an Android device.
 
-Make sure your computer and mobile device are connected to the same network.
-
----
-
-# 🧪 Testing the Application
-
-## Home / Dashboard
-
-1. Open the application.
-2. Check the total balance.
-3. Check total income and expenses.
-4. Check the recent transactions.
-5. Tap the `+` button to open Add Transaction.
-
-## Transactions
-
-1. Open the Transactions tab.
-2. Select `All`.
-3. Select `Food`.
-4. Select `Travel`.
-5. Select `Bills`.
-6. Select `Income`.
-7. Verify that the transaction list updates according to the selected filter.
-
-## Add Transaction
-
-1. Open Add Transaction.
-2. Select Income or Expense.
-3. Enter a transaction title.
-4. Enter an amount.
-5. Select a category.
-6. Enter a date.
-7. Tap Save Transaction.
-8. Test validation by leaving required fields empty.
-9. Test the amount field with invalid characters.
-
-## Category Summary
-
-1. Open the Categories tab.
-2. Check total spending.
-3. Check category totals.
-4. Check spending percentages.
-5. Check the visual progress bars.
+Make sure the computer and mobile device are connected to the same network.
 
 ---
 
-# 🎨 Design
+## 🧪 Testing
 
-The application uses a consistent visual style across all screens.
-
-### Design characteristics
-
-- Clean white cards
-- Light gray background
-- Blue primary actions
-- Green income indicators
-- Red expense indicators
-- Rounded cards
-- Rounded buttons
-- Clear typography
-- Consistent spacing
-- Mobile-friendly layout
-
-All application styling is implemented using NativeWind utility classes.
+1. Open the Dashboard and verify balance, income, expenses, and recent transactions.
+2. Open Transactions and test all category filters.
+3. Open Add Transaction and test income/expense selection, validation, amount input, category selection, and date picker.
+4. Save a transaction and verify the local state update.
+5. Open Categories and verify spending totals and progress bars.
 
 ---
 
-# 📊 Mock Data
+## 🔒 Data & Architecture
 
-This project uses local mock data only.
+This is a **UI-only application** created according to the assessment requirements.
 
-Transaction data is stored in:
-
-```text
-data/mockData.js
-```
-
-Example categories:
-
-- Food
-- Travel
-- Bills
-- Income
-
-Example transactions:
-
-- Grocery Shopping
-- Monthly Salary
-- Uber Ride
-- Electricity Bill
-- Freelance Project
-- Restaurant Dinner
-- Flight Tickets
-- Internet Bill
-
-No external data source is required.
+- No backend
+- No API calls
+- No database
+- No authentication
+- No external data fetching
+- Local mock data only
+- Functional React components
+- NativeWind utility classes for styling
 
 ---
 
-# 🔒 No Backend / API
+## ⚡ Edge Cases
 
-This is a UI-only application.
-
-The project does not use:
-
-- API calls
-- Backend services
-- Database
-- Authentication services
-- External data fetching
-
-All application data comes from local mock data.
-
----
-
-# 📱 Navigation
-
-The application uses React Navigation with Stack Navigation and Bottom Tab Navigation.
-
-### Bottom Tabs
-
-```text
-Home
-Transactions
-Categories
-```
-
-### Stack Navigation
-
-```text
-Main
-├── Home
-├── Transactions
-└── Categories
-
-Add Transaction
-```
-
-The Add Transaction screen is opened from the Dashboard using the quick-add button.
-
----
-
-# 🧩 Component Structure
-
-The application uses reusable functional components.
-
-### SummaryCard
-
-Used for displaying income and expense summary information.
-
-### TransactionCard
-
-Used to display individual transaction information consistently across the application.
-
-The screens and components are kept separate to make the project easier to maintain and understand.
-
----
-
-# ⚡ Edge Cases
-
-The application handles the following cases:
-
-- Empty transaction title
-- Empty amount
-- Zero amount
-- Negative amount
+- Empty title
+- Empty or invalid amount
+- Zero or negative amount
 - Invalid amount characters
-- Category filtering
 - Empty transaction list
+- Category filtering
 - Long transaction titles
 - Keyboard covering form fields
-- Validation errors
-
-Long transaction titles are truncated to prevent layout overflow.
+- Inline validation errors
 
 ---
 
-# 📸 Screenshots
-
-Screenshots of the application will be added to this section before final submission.
-
-## 📸 Screenshots
-
-## Home / Dashboard
-
-![Home Dashboard](screenshots/home.jpeg)
-
-## Transactions
-
-![Transactions](screenshots/add-transaction2.jpeg)
-
-## Add Transaction
-
-![Add Transaction](screenshots/add-transaction.jpeg)
-
-## Category Summary
-
-![Category Summary](screenshots/categories.jpeg)
-
----
-
-# 📋 Assessment Requirements Covered
+## 📋 Assessment Requirements
 
 | Requirement | Status |
 |---|---|
 | Dashboard / Home | ✅ |
-| Total balance | ✅ |
-| Total income | ✅ |
-| Total expenses | ✅ |
-| Recent transactions | ✅ |
-| Quick-add button | ✅ |
-| All transactions | ✅ |
-| Category filtering | ✅ |
+| Transactions & Filtering | ✅ |
 | Add Transaction | ✅ |
-| Income / Expense selection | ✅ |
-| Amount validation | ✅ |
+| Date Picker | ✅ |
+| Form Validation | ✅ |
 | Category Summary | ✅ |
-| Spending breakdown | ✅ |
-| Progress bars | ✅ |
+| Progress Bars | ✅ |
 | React Navigation | ✅ |
-| Bottom Tabs | ✅ |
-| Stack Navigation | ✅ |
-| NativeWind styling | ✅ |
-| Local mock data | ✅ |
-| No backend/API | ✅ |
-| Functional components | ✅ |
-| README | ✅ |
+| NativeWind Styling | ✅ |
+| Local Mock Data | ✅ |
+| Empty & Error States | ✅ |
+| Responsive UI | ✅ |
 
 ---
 
-# 👩‍💻 Author
+## 👩‍💻 Author
 
 **Aishwarya Chakote**
 
-Computer Science & Engineering
-
-Frontend / Software Development
+Computer Science & Engineering  
+Frontend / AI Software Development
 
 ---
 
-# 📄 License
+## 📄 License
 
-This project was created for educational and internship assessment purposes.
+Created for educational and internship assessment purposes.
