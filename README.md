@@ -443,21 +443,23 @@ Long transaction titles are truncated to prevent layout overflow.
 
 Screenshots of the application will be added to this section before final submission.
 
+## 📸 Screenshots
+
 ## Home / Dashboard
 
-![Home Dashboard](screenshots/home.png)
+![Home Dashboard](screenshots/home.jpeg)
 
 ## Transactions
 
-![Transactions](screenshots/transactions.png)
+![Transactions](screenshots/add-transaction2.jpeg)
 
 ## Add Transaction
 
-![Add Transaction](screenshots/add-transaction.png)
+![Add Transaction](screenshots/add-transaction.jpeg)
 
 ## Category Summary
 
-![Category Summary](screenshots/categories.png)
+![Category Summary](screenshots/categories.jpeg)
 
 ---
 
